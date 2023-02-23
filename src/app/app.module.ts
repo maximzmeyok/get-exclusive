@@ -7,18 +7,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     WelcomePageComponent,
-    PostPageComponent
+    PostPageComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
