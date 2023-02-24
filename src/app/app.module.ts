@@ -1,3 +1,5 @@
+import { FirebaseApiService } from './shared/firebase-api.service';
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,16 +18,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainLayoutComponent,
     WelcomePageComponent,
     PostPageComponent,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
   ],
-  providers: [],
+  providers: [
+    FirebaseApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { User } from './../../shared/interfaces';
+import { FirebaseApiService } from './../../shared/firebase-api.service';
+import { SignUpData } from './../../shared/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -12,7 +13,9 @@ export class WelcomePageComponent implements OnInit {
   public formSignUp!: FormGroup;
   public submitted: boolean = false;
 
-  constructor() {}
+  constructor(
+    private _firebaseApiService: FirebaseApiService,
+  ) {}
 
   public ngOnInit(): void {
     this._initFormSignUp();
@@ -26,8 +29,9 @@ export class WelcomePageComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: User = this.formSignIn.value;
-    console.log(user);
+    const user: SignUpData = this.formSignIn.value;
+
+    this._firebaseApiService.signIn(user).subscribe();
     this.submitted = false;
   }
 
@@ -35,11 +39,12 @@ export class WelcomePageComponent implements OnInit {
     if (this.formSignUp.invalid) {
       return;
     }
-
+    
     this.submitted = true;
 
-    const user: User = this.formSignUp.value;
-    console.log(user);
+    const user: SignUpData = this.formSignUp.value;
+    
+    this._firebaseApiService.signUp(user).subscribe();
     this.submitted = false;
   }
 
