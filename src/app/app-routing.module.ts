@@ -7,10 +7,10 @@ import { MainLayoutComponent } from './shared/components/main-layout/main-layout
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: '', component: WelcomePageComponent },
+  { path: '', component: WelcomePageComponent, title: 'Welcome' },
   {
     path: 'main', component: MainLayoutComponent, children: [
-      { path: 'feed', component: MainPageComponent },
+      { path: 'feed', component: MainPageComponent, title: 'Feed' },
       { path: 'post/:id', component: PostPageComponent },
     ]
   },
