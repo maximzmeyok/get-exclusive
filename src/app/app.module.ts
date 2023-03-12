@@ -1,3 +1,5 @@
+import { SignInComponent } from './shared/components/sign-in/sign-in.component';
+import { SignUpComponent } from './shared/components/sign-up/sign-up.component';
 import { FirebaseApiService } from './shared/firebase-api.service';
 import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
@@ -19,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WelcomePageComponent,
     PostPageComponent,
     MainPageComponent,
+    SignUpComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,

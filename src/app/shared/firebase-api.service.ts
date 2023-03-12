@@ -13,7 +13,7 @@ export class FirebaseApiService {
   ) {}
 
   public signIn(body: SignInData): Observable<SignInResponse> {
-    const url: string = `${this._accountsUrl}:signInWithPassword?key${environment.apiKey}`;
+    const url: string = `${this._accountsUrl}:signInWithPassword?key=${environment.apiKey}`;
     body.returnSecureToken = true;
     
     return this._httpClient.post<SignInResponse>(url, body);

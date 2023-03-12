@@ -1,31 +1,22 @@
 <h1>Welcome to Get Exclusive!</h1>
 
-<form [formGroup]="formSignIn" (ngSubmit)="signIn()">
-  <h2>Sign In</h2>
-  
-  <label for="email">Email</label>
-  <input type="email" id="email" formControlName="email">
-  
-  <label for="password">Пароль</label>
-  <input type="password" id="password" formControlName="password">
-
-  <button
-    type="submit"
-    [disabled]="formSignIn.invalid || this.submitted"
-  >Вход</button>
-</form>
-
-<form [formGroup]="formSignUp" (ngSubmit)="signUp()">
-  <h2>Sign Up</h2>
-
-  <label for="emailUp">Email maxim_zmeyok@mail.ru</label>
-  <input type="email" id="emailUp" formControlName="email">
-
-  <label for="passwordUp">Пароль mokrievelichki110511</label>
-  <input type="password" id="passwordUp" formControlName="password">
-
-  <button
-    type="submit"
-    [disabled]="formSignUp.invalid || this.submitted"
-  >Регистрация</button>
-</form>
+<div class="form-area">
+  <div>
+    <app-sign-in *ngIf="isSignIn; else isSignUp"></app-sign-in>
+    <ng-template #isSignUp>
+      <app-sign-up></app-sign-up>
+    </ng-template>
+  </div>
+  <div>
+    <div *ngIf="isSignIn; else isSignUpp">
+      <p>Ещё нет аккаунта?</p>
+      <button mat-raised-button (click)="toggle()">Регистрация</button>
+    </div>
+    <ng-template #isSignUpp>
+      <div>
+        <p>Уже есть аккаунт?</p>
+        <button mat-raised-button (click)="toggle()">Вход</button>
+      </div>
+    </ng-template>
+  </div>
+</div>
